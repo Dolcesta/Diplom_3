@@ -1,0 +1,6 @@
+com\stellarburger\pageobject\RestorePasswordPage.class
+com\stellarburger\pageobject\UserAccountPage.class
+com\stellarburger\pageobject\AuthorizationPage.class
+com\stellarburger\pageobject\MainPage.class
+com\stellarburger\pageobject\RegistrationPage.class
+com\stellarburger\User.class
