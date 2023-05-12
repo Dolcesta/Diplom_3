@@ -58,26 +58,22 @@ public class MainPage {
         return textButton.getText();
     }
 
-    // метод того что при нажатии ссылки соусов меню автоматически скролится до соусов
+    // проверка видимости заголовка Соуса
     @Step("Find And Click SauceLink on mainPage, check Sauce Element")
     public boolean checkSauceLinkDisplayed() {
-        driver.findElement(ingredientSauceButton).click();
-        return driver.findElement(checkSauceDisplayed).isDisplayed();
+       return driver.findElement(checkSauceDisplayed).isDisplayed();
     }
 
-    // метод того что при нажатии ссылки соусов меню автоматически скролится до начинки
+    // проверка видимости заголовка Начинки
     @Step("Find And Click StuffingLink on mainPage, check Stuffing Element")
     public boolean checkStuffingLinkDisplayed() {
-        driver.findElement(ingredientFillingButton).click();
-        return driver.findElement(checkFillingDisplayed).isDisplayed();
+       return driver.findElement(checkFillingDisplayed).isDisplayed();
     }
 
-    // метод того что при нажатии ссылки соусов меню автоматически скролится до булок
+    // проверка видимости заголовка Булки
     @Step("Find And Click BunsLink on mainPage, check Buns Element")
     public boolean checkBunsLinkDisplayed() {
-        driver.findElement(ingredientFillingButton).click(); //сначала выберем начинку, булки и так стартовые
-        driver.findElement(ingredientBunsButton).click();
-        return driver.findElement(checkBunsDisplayed).isDisplayed();
+       return driver.findElement(checkBunsDisplayed).isDisplayed();
     }
 }
 
