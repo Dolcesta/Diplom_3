@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
+
 public class MainPage {
     private final WebDriver driver;
     private final static String mainPage = "https://stellarburgers.nomoreparties.site/";
@@ -18,14 +19,14 @@ public class MainPage {
     //  локатор для кнопки личный кабинет
     private final By userAccountButton = By.xpath("//a[@class='AppHeader_header__link__3D_hX' and @href='/account']");
     //  локаторы для соуса
-    private final By ingredientSauceButton = By.xpath("//span[text()='Соусы']/..");
-    private final By checkSauceDisplayed = By.xpath(".//section[1]/div[2]/h2[2]");
+    private final By ingredientSauceButton = By.xpath(".//h2[(text() = 'Соусы')]");
+
     //  локаторы для булки
-    private final By ingredientBunsButton = By.xpath("//span[text()='Булки']/..");
-    private final By  checkBunsDisplayed = By.xpath(".//section[1]/div[2]/h2[1]");
+    private final By ingredientBunsButton =  By.xpath(".//h2[(text() = 'Булки')]");
+
     // локаторы для начинки
-    private final By ingredientFillingButton = By.xpath("//span[text()='Начинки']/..");
-    private final By checkFillingDisplayed = By.xpath(".//section[1]/div[2]/h2[3]");
+    private final By ingredientFillingButton = By.xpath(".//h2[(text() = 'Начинки')]");
+
     // локаторы для кнопки "Оформить заказ"
     private final By orderButton = By.className("button_button__33qZ0");
 
@@ -59,21 +60,37 @@ public class MainPage {
     }
 
     // проверка видимости заголовка Соуса
-    @Step("Find And Click SauceLink on mainPage, check Sauce Element")
+
+    @Step("Click SauceLink on mainPage, check Sauce Element")
+    public MainPage clickSauceLink() {
+        driver.findElement(ingredientSauceButton).click();
+        return this;
+    }
+    @Step("Find SauceLink on mainPage, check Sauce Element")
     public boolean checkSauceLinkDisplayed() {
-       return driver.findElement(checkSauceDisplayed).isDisplayed();
+       return driver.findElement(ingredientSauceButton).isDisplayed();
     }
 
     // проверка видимости заголовка Начинки
-    @Step("Find And Click StuffingLink on mainPage, check Stuffing Element")
+    @Step("Click StuffingLink on mainPage, check Stuffing Element")
+    public MainPage clickFillingsLink() {
+        driver.findElement(ingredientFillingButton).click();
+        return this;
+    }
+    @Step("Find StuffingLink on mainPage, check Stuffing Element")
     public boolean checkStuffingLinkDisplayed() {
-       return driver.findElement(checkFillingDisplayed).isDisplayed();
+       return driver.findElement(ingredientFillingButton).isDisplayed();
     }
 
     // проверка видимости заголовка Булки
-    @Step("Find And Click BunsLink on mainPage, check Buns Element")
+    @Step("Click BunsLink on mainPage, check Buns Element")
+    public MainPage clickBunsLink() {
+        driver.findElement(ingredientBunsButton).click();
+        return this;
+    }
+    @Step("Find BunsLink on mainPage, check Buns Element")
     public boolean checkBunsLinkDisplayed() {
-       return driver.findElement(checkBunsDisplayed).isDisplayed();
+       return driver.findElement(ingredientBunsButton).isDisplayed();
     }
 }
 
