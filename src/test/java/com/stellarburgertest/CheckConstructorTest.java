@@ -5,11 +5,15 @@ import com.stellarburger.pageobject.MainPage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertEquals;
+
 
 
 public class CheckConstructorTest {
@@ -44,19 +48,21 @@ public class CheckConstructorTest {
     }
 
     @Test
-    @DisplayName("check Constructor Buns Link at MainPage")
-    public void checkBunsTab() {
-        objMainPage.openMainPage();
-        objMainPage.clickBunsLink();
-        assertTrue("Error in section Links-Buns", objMainPage.checkBunsLinkDisplayed());
-    }
-
-    @Test
     @DisplayName("check Constructor Stuffing Link at MainPage")
     public void checkStuffingTab() {
         objMainPage.openMainPage();
         objMainPage.clickFillingsLink();
         assertTrue("Error in section Links-Stuffing", objMainPage.checkStuffingLinkDisplayed());
     }
+
+    @Test
+    @DisplayName("check Constructor Buns Link at MainPage")
+    public void checkBunsTab() {
+        objMainPage.openMainPage();
+        objMainPage.clickSauceLink();
+        objMainPage.clickBunsLink();
+        assertTrue("Error in section Links-Buns", objMainPage.checkBunsLinkDisplayed());
+    }
+
 
 }
